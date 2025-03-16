@@ -1,0 +1,72 @@
+using System;
+
+class Program
+{
+    static func Main()
+    {
+        var Total_Registered_Voters : int;
+        var Total_Valid_Votes : int;
+        var Total_Invalid_Votes : int;
+        var Total_Valid_Votes_for_Malawi_Congress_Party : int;
+        var Total_Valid_Votes_for_Democratic_Progressive_Party : int;
+        var Total_Valid_Votes_for_Mbakuwaku_Development : int;
+        var majority : int;
+        var mcp_percentage : float;
+        var dpp_percentage : float;
+        var mbakuwaku_percentage : float;
+
+        // Print Heading
+        println("================================ 2020 MALAWI FRESH ELECTION ================================\n");
+
+        // Input Data from User
+        println("Enter Total Number of Registered Voters:");
+        Total_Registered_Voters = int.Parse(readln());
+
+        println("Enter Total Number of Valid Votes:");
+        Total_Valid_Votes = int.Parse(readln());
+
+        println("Enter Total Number of Invalid Votes:");
+        Total_Invalid_Votes = int.Parse(readln());
+
+        println("Enter Total Valid Votes for Malawi Congress Party:");
+        Total_Valid_Votes_for_Malawi_Congress_Party = int.Parse(readln());
+
+        println("Enter Total Valid Votes for Democratic Progressive Party:");
+        Total_Valid_Votes_for_Democratic_Progressive_Party = int.Parse(readln());
+
+        println("Enter Total Valid Votes for Mbakuwaku Development:");
+        Total_Valid_Votes_for_Mbakuwaku_Development = int.Parse(readln());
+
+        // Calculate Majority
+        majority = Total_Valid_Votes / 2 + 1;
+
+        // Calculate percentage for each party
+        mcp_percentage = (float(Total_Valid_Votes_for_Malawi_Congress_Party) / Total_Valid_Votes) * 100.0;
+        dpp_percentage = (float(Total_Valid_Votes_for_Democratic_Progressive_Party) / Total_Valid_Votes) * 100.0;
+        mbakuwaku_percentage = (float(Total_Valid_Votes_for_Mbakuwaku_Development) / Total_Valid_Votes) * 100.0;
+
+        // Output Results in Percentage
+        println("\nElection Results in Percentage:");
+        println("Malawi Congress Party: " + mcp_percentage.ToString("F2") + "%");
+        println("Democratic Progressive Party: " + dpp_percentage.ToString("F2") + "%");
+        println("Mbakuwaku Development Movement: " + mbakuwaku_percentage.ToString("F2") + "%");
+
+        // Check who has the majority
+        if (Total_Valid_Votes_for_Malawi_Congress_Party >= majority)
+        {
+            println("\nMalawi Congress Party is The Winner of the 2020 Malawi Presidential Election");
+        }
+        else if (Total_Valid_Votes_for_Democratic_Progressive_Party >= majority)
+        {
+            println("\nDemocratic Progressive Party is The Winner of the 2020 Malawi Presidential Election");
+        }
+        else if (Total_Valid_Votes_for_Mbakuwaku_Development >= majority)
+        {
+            println("\nMbakuwaku Movement is The Winner of the 2020 Malawi Presidential Election");
+        }
+        else
+        {
+            println("\nNo Majority Winner Found");
+        }
+    }
+}
